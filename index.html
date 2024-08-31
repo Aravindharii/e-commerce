@@ -24,17 +24,15 @@
                         <a class="nav-link" href="shop.html">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html" target="log">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a><a></a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    
 
     <!-- Header Section -->
     <header class="bg-primary text-white text-center py-5">
@@ -51,66 +49,66 @@
                 <!-- Product 1 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="bottle.webp" class="card-img-top" alt="Reusable Water Bottle">
+                        <img src="bottle.webp" class="card-img-top" height="150px" width="150px" alt="Reusable Water Bottle">
                         <div class="card-body">
                             <h5 class="card-title">Reusable Water Bottle</h5>
                             <p class="card-text">Rs.250</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="addToCart('Reusable Water Bottle', 250, 'bottle.webp')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <!-- Product 2 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="bamboo.jpg" class="card-img-top" alt="Bamboo Toothbrush">
+                        <img src="bamboo.jpg" class="card-img-top" height="150px" width="150px" alt="Bamboo Toothbrush">
                         <div class="card-body">
                             <h5 class="card-title">Bamboo Toothbrush</h5>
                             <p class="card-text">Rs.150</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="addToCart('Bamboo Toothbrush', 150, 'bamboo.jpg')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <!-- Product 3 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="tote bag.webp" class="card-img-top" alt="Organic Cotton Tote Bag">
+                        <img src="tote bag.webp" class="card-img-top"  height="150px" width="150px" alt="Organic Cotton Tote Bag">
                         <div class="card-body">
                             <h5 class="card-title">Organic Cotton Tote Bag</h5>
                             <p class="card-text">Rs.350</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="addToCart('Organic Cotton Tote Bag', 350, 'tote bag.webp')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <!-- Product 4 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="beeswax.jpg" class="card-img-top" alt="Reusable Beeswax Wraps">
+                        <img src="beeswax.jpg" class="card-img-top" height="150px" width="150px" alt="Reusable Beeswax Wraps">
                         <div class="card-body">
                             <h5 class="card-title">Reusable Beeswax Wraps</h5>
                             <p class="card-text">Rs.60</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="addToCart('Reusable Beeswax Wraps', 60, 'beeswax.jpg')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <!-- Product 5 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="case.jpg" class="card-img-top" alt="Compostable Phone Case">
+                        <img src="case.jpg" class="card-img-top"  height="150px" width="150px" alt="Compostable Phone Case">
                         <div class="card-body">
                             <h5 class="card-title">Compostable Phone Case</h5>
                             <p class="card-text">Rs.450</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="addToCart('Compostable Phone Case', 450, 'case.jpg')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
                 <!-- Product 6 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="solar.avif" class="card-img-top" alt="Solar-Powered Charger">
+                        <img src="solar.avif" class="card-img-top" height="150px" width="150px" alt="Solar-Powered Charger">
                         <div class="card-body">
                             <h5 class="card-title">Solar-Powered Charger</h5>
                             <p class="card-text">Rs.1500</p>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="addToCart('Solar-Powered Charger', 1500, 'solar.avif')">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -126,5 +124,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function addToCart(name, price, image) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.push({ name, price, image });
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            window.location.href = 'shop.html';
+        }
+    </script>
 </body>
 </html>
