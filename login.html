@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Login</h2>
+        <h2>Log-in</h2>
         <form id="loginForm" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -22,8 +22,37 @@
             </div>
             <input type="submit" value="Login">
         </form>
+        <h3>No account? Don't worry<br><a href="signup.html"><span>Sign-up here</span></a></h3>
     </div>
-    <script src="script.js"></script>
+     <!-- Footer -->
+     <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 EcoStore Aravindhari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function validateForm() {
+            // Get the values from the form
+            const enteredUsername = document.getElementById('username').value;
+            const enteredPassword = document.getElementById('password').value;
+
+            // Get the stored values from local storage
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+
+            // Check if the entered values match the stored values
+            if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
+                alert('Login successful!');
+                window.location.href = 'index.html';
+                return false; // Prevent form submission (because we are redirecting manually)
+            } else {
+                // Display error messages
+                document.getElementById('usernameError').textContent = 'Invalid username';
+                document.getElementById('passwordError').textContent = 'Invalid password';
+                return false; // Prevent form submission
+            }
+        }
+    </script>
 </body>
 </html>
-
